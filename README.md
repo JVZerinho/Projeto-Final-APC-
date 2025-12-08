@@ -9,7 +9,6 @@ Matricula: 252039062
 
 ![Language](https://img.shields.io/badge/Language-C-blue.svg)
 ![Status](https://img.shields.io/badge/Status-Completed-success.svg)
-![License](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
 ## 📖 Sobre o Projeto
 
