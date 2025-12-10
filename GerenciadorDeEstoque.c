@@ -34,9 +34,9 @@ SistemaEstoque sistema; // Variável global (alocada na memória estática)
 void limparTela()
 {
 #ifdef _WIN32
-    system("cls");
+    system("cls"); // Windows
 #else
-    system("clear");
+    system("clear"); // Linux/Mac
 #endif
 }
 
@@ -146,7 +146,6 @@ int compararProdutos(const void *a, const void *b)
 }
 
 //? Ordena o vetor 'catalogo'. Necessário para a Busca Binária funcionar.
-//? Complexidade: O(N log N)
 void ordenarCatalogo()
 {
     if (sistema.qtdProdutos > 1)
@@ -158,7 +157,6 @@ void ordenarCatalogo()
 //* --- ALGORITMO DE BUSCA ---
 //? Busca Binária
 //? Divide o espaço de busca pela metade a cada chamada.
-//? Complexidade: O(log N) - Extremamente rápido.
 int buscaBinariaRecursiva(int id, int inicio, int fim)
 {
     if (inicio > fim)
@@ -197,7 +195,7 @@ void visualizarMapa()
         }
         printf(" |\n");
     }
-    printf("       |____________________________________| \n");
+    printf("      |_____________________________________| \n");
 
     //? Barra de Progresso Visual (Regra de Três simples)
     printf("\n   CAPACIDADE DO ESTOQUE:\n   [");
@@ -363,7 +361,7 @@ void consultarProduto()
     printf("   > Digite o ID para buscar: ");
     scanf("%d", &id);
 
-    //? Busca em O(log n)
+    //? Busca recursiva
     int index = buscaBinariaRecursiva(id, 0, sistema.qtdProdutos - 1);
 
     if (index != -1)
